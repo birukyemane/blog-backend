@@ -1,0 +1,5 @@
+[0mGET / [31m500[0m 7.072 ms - 41[0m
+[0mGET /blogs [31m500[0m 0.961 ms - 41[0m
+[0mGET /blogs [31m500[0m 0.945 ms - 41[0m
+[0mGET /blogs [32m200[0m 9.027 ms - 40[0m
+[0mGET /blogs [32m200[0m 1.262 ms - 40[0m
