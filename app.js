@@ -5,7 +5,7 @@ const express = require("express");
 const morgan = require("morgan");
 const favicon = require("serve-favicon");
 
-//const mealsRouter =  require('./routers/mealsRouters');
+const blogsRouter = require("./routers/blogsRouter");
 
 // 2. init
 const app = express();
@@ -23,7 +23,7 @@ app.use(morgan("dev", { stream: accessLogStream }));
 app.use(express.json());
 
 // 5. routing
-// app.use('/meals', mealsRouter);
+app.use("/blogs", blogsRouter);
 
 app.all("*", (req, res, next) => {
   next(new Error("No route found"));
