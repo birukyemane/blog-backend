@@ -1,6 +1,24 @@
-let blogs = [{
-    "_id": "1",
-    "name": "about react hooks"
-}]
+const mongoose = require("mongoose");
 
-module.exports = blogs;
+const blogsSchema = new mongoose.Schema(
+  {
+    title: String,
+    content: String,
+    author: String,
+    date: Date,
+    readingTime: Number,
+    category: String,
+  },
+  {
+    timestamps: true,
+  }
+);
+
+module.exports = mongoose.model("blog", blogsSchema);
+
+// let blogs = [{
+//     "_id": "1",
+//     "name": "about react hooks"
+// }]
+
+// module.exports = blogs;

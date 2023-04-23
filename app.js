@@ -4,10 +4,20 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const favicon = require("serve-favicon");
+const mongoose = require('mongoose');
+const cors = require('cors');
 
 const blogsRouter = require("./routers/blogsRouter");
 
 // 2. init
+(async function () {
+  try {
+      await mongoose.connect('mongodb+srv://biryem:tNBLpsePnWnNZP3R@cluster0.yddixvj.mongodb.net/test?retryWrites=true&w=majority')
+      console.log(`connected to DB`)
+  } catch (e) {
+      console.log(`Error connecting to DB`, e)
+  }
+})();
 const app = express();
 
 //3. setup = configure app settings
@@ -21,6 +31,7 @@ const accessLogStream = fs.createWriteStream(
 );
 app.use(morgan("dev", { stream: accessLogStream }));
 app.use(express.json());
+app.use(cors());
 
 // 5. routing
 app.use("/blogs", blogsRouter);
