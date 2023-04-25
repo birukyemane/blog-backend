@@ -3,10 +3,11 @@ const mongoose = require("mongoose");
 const blogsSchema = new mongoose.Schema(
   {
     title: String,
+    description:String,
     content: String,
     author: String,
-    date: Date,
     readingTime: Number,
+    image:String,
     category: String,
   },
   {
